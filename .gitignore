@@ -1,0 +1,13 @@
+.settings/
+build/
+compile/
+maven-status/
+.project
+.class
+.classpath
+*.class
+*.jar
+*.war
+*.MF
+pom.properties
+/.metadata/
