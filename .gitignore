@@ -1,2 +1,7 @@
 .settings/
 *.class
+build/
+.project
+.classpath
+/target/
+/tmp
