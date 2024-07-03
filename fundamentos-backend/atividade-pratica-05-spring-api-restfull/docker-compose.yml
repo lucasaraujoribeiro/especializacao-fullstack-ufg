@@ -1,0 +1,12 @@
+services:
+  postgres-db:
+    image: postgres:15
+    container_name: postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: fullstack_backend
+    volumes:
+      - ./data:/var/lib/postgresql/data
