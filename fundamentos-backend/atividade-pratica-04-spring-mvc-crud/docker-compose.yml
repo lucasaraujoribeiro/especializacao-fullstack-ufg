@@ -1,4 +1,3 @@
-# docker container postgres
 services:
     postgres-db:
         image: postgres:15
