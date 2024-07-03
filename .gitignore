@@ -3,5 +3,5 @@
 build/
 .project
 .classpath
-/target/
+**/target/
 /tmp
