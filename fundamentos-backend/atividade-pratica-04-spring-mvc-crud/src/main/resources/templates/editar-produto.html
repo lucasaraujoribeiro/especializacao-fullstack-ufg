@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Adicionar Produto</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+<header>
+    <h1>Produto - Editar</h1>
+</header>
+<form class="formulario" th:action="@{/produtos}" method="post">
+    <div>
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" th:value="${produto.id}" readonly>
+    </div>
+    <div>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" th:value="${produto.nome}">
+    </div>
+    <div>
+        <label for="preco">Preço:</label>
+        <input type="text" id="preco" name="preco" th:value="${produto.preco}">
+    </div>
+    <div>
+        <button class="button" type="submit">Salvar Produto</button>
+    </div>
+</form>
+</body>
+</html>
