@@ -1,0 +1,9 @@
+.container-principal {
+  padding: 20px 50px;
+}
+
+.container-btn-novo {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: flex-end;
+}

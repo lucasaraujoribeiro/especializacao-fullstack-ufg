@@ -1,0 +1,13 @@
+<div class="content-form">
+  <h2 mat-dialog-title>{{ data.title }}</h2>
+  <mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Nome</mat-label>
+      <input matInput [(ngModel)]="tag.nome"/>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button (click)="close()">Cancelar</button>
+    <button mat-button (click)="salvar()" cdkFocusInitial>Salvar</button>
+  </mat-dialog-actions>
+</div>

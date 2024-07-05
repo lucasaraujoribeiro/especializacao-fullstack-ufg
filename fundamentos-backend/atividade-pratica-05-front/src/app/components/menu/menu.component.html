@@ -1,0 +1,24 @@
+<mat-toolbar class="mat-primary">
+  <img src="assets/ufg-logo.svg" alt="Logo" height="80%" class="logo" style="margin-right: 10px; background: white"/>
+  <span> Atividade Prática - CRUD de Produtos, Categorias e Tags</span>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened>
+    <mat-nav-list>
+      <mat-list-item routerLink="/produto">
+        <span matLine>Produto</span>
+      </mat-list-item>
+      <mat-list-item routerLink="/categoria">
+        <span matLine>Categoria</span>
+      </mat-list-item>
+      <mat-list-item routerLink="/tag">
+        <span matLine>Tag</span>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+      <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
