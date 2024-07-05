@@ -39,6 +39,8 @@ public class ProdutoController {
         if (produto != null) {
             produto.setNome(produtoDetalhes.getNome());
             produto.setPreco(produtoDetalhes.getPreco());
+            produto.setCategoria(produtoDetalhes.getCategoria());
+            produto.setTags(produtoDetalhes.getTags());
             return ResponseEntity.ok(produtoService.save(produto));
         } else {
             return ResponseEntity.notFound().build();

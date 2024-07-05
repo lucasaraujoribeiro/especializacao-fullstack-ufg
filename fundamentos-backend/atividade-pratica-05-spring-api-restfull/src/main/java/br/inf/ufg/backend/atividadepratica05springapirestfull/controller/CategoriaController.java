@@ -38,7 +38,6 @@ public class CategoriaController {
         Categoria categoria = categoriaService.findById(id);
         if (categoria != null) {
             categoria.setNome(categoriaDetalhes.getNome());
-            categoria.setProdutos(categoriaDetalhes.getProdutos());
             return ResponseEntity.ok(categoriaService.save(categoria));
         } else {
             return ResponseEntity.notFound().build();

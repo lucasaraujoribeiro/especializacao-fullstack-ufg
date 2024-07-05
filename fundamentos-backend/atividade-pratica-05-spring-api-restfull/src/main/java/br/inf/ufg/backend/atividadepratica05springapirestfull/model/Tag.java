@@ -15,9 +15,6 @@ public class Tag {
     private Long id;
     private String nome;
 
-    @ManyToMany(mappedBy = "tags")
-    private List<Produto> produtos;
-
     public Long getId() {
         return id;
     }
