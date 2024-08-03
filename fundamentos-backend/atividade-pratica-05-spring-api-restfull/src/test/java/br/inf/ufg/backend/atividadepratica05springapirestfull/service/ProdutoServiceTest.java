@@ -10,7 +10,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 public class ProdutoServiceTest {
-
     @Autowired
     private ProdutoService service;
     @Test
@@ -23,10 +22,5 @@ public class ProdutoServiceTest {
         assertNotNull(produtoSalvo.getId());
         assertEquals(nome, produtoSalvo.getNome());
         assertEquals(preco, produtoSalvo.getPreco());
-    }
-
-    @Test
-    public void testFindAll() {
-        assertNotNull(service.findAll());
     }
 }

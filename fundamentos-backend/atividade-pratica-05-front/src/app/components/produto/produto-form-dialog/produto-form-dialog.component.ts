@@ -15,6 +15,7 @@ import {Categoria, Produto, Tag} from "../../../classes/produto.model";
 import {MatOption, MatSelect} from "@angular/material/select";
 import {CategoriaService} from "../../../services/categoria.service";
 import {TagService} from "../../../services/tag.service";
+import {NotificationService} from "../../../services/notification.service";
 
 @Component({
   selector: 'app-produto-form-dialog',
@@ -40,6 +41,7 @@ export class ProdutoFormDialogComponent implements OnInit {
 
   readonly dialogRef = inject<MatDialogRef<ProdutoFormDialogComponent>>(MatDialogRef);
   readonly data = inject<any>(MAT_DIALOG_DATA);
+  readonly notificationService = inject(NotificationService);
   readonly categoriaService = inject(CategoriaService);
   readonly tagService = inject(TagService);
   readonly produto: Produto = {...this.data.produto} || new Produto();
@@ -55,9 +57,27 @@ export class ProdutoFormDialogComponent implements OnInit {
   }
 
   salvar() {
-    this.produto.categoria = this.categorias.find(categoria => categoria.id === this.categoriaid);
-    this.produto.tags = this.tags.filter(tag => this.tagsIds.includes(tag.id));
-    this.dialogRef.close(this.produto);
+    if (this.isCamposValidos()) {
+      this.produto.categoria = this.categorias.find(categoria => categoria.id === this.categoriaid);
+      this.produto.tags = this.tags.filter(tag => this.tagsIds.includes(tag.id));
+      this.dialogRef.close(this.produto);
+    }
+  }
+
+  private isCamposValidos(): boolean {
+    if (!this.produto.nome) {
+      this.notificationService.error('Nome é obrigatório!')
+      return false;
+    }
+    if (!this.produto.preco) {
+      this.notificationService.error('Preço é obrigatório!')
+      return false;
+    }
+    if (!this.categoriaid) {
+      this.notificationService.error('Categoria é obrigatória!')
+      return false;
+    }
+    return true;
   }
 
   close() {

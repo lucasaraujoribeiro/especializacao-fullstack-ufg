@@ -31,6 +31,14 @@ public class Produto {
     )
     private List<Tag> tags;
 
+    public Produto() {}
+
+    public Produto(Long id, String nome, double preco) {
+        this.id = id;
+        this.nome = nome;
+        this.preco = preco;
+    }
+
     public Long getId() {
         return id;
     }

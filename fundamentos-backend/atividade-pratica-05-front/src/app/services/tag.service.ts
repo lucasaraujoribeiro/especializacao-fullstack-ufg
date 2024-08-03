@@ -2,13 +2,14 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Categoria, Tag} from "../classes/produto.model";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TagService {
 
-  urlBaseApi = 'http://localhost:8080/api/tags';
+  urlBaseApi = environment.apiUrl + '/tags';
 
   constructor(private http: HttpClient) {
   }
