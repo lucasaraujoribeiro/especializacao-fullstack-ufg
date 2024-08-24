@@ -26,71 +26,92 @@ app.get("/customers", async (req, res) => {
 });
 
 app.get("/customers/:id", async (req, res) => {
-    const id = req.params.id;
-    console.log(`Consultando id: ${id}`)
-    const customer = await prisma.customers.findUnique({
-        where: {id}
-    });
-    debugger
-    if (customer == null) {
-        return res.status(404);
+    try {
+        const id = req.params.id;
+        console.log(`Consultando id: ${id}`)
+        const customer = await prisma.customers.findUnique({
+            where: {id}
+        });
+        debugger
+        if (customer == null) {
+            return res.status(404);
+        }
+        return res.json(customer);
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({error: error});
     }
-    return res.json(customer);
 });
 
 app.post("/customers", async (req, res) => {
-    const {name, email, document} = req.body;
-    const customer = await prisma.customers.create({
-        data: {
-            name,
-            email,
-            document
-        }
-    });
-    console.log(customer);
-    res.status(201);
-    return res.json(customer);
+    try {
+        const {name, email, document} = req.body;
+        const customer = await prisma.customers.create({
+            data: {
+                name,
+                email,
+                document
+            }
+        });
+        console.log(customer);
+        res.status(201);
+        return res.json(customer);
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({error: error})
+    }
+
 });
 
 app.put("/customers/:id", async (req, res) => {
-    const {name, email, document} = req.body;
-    
-    const id = req.params.id;
-    const customer = await prisma.customers.findUnique({
-        where: {id}
-    });
+    try {
+        const {name, email, document} = req.body;
+        
+        const id = req.params.id;
+        const customer = await prisma.customers.findUnique({
+            where: {id}
+        });
 
-    if (customer == null) {
-        return res.status(404).json();
+        if (customer == null) {
+            return res.status(404).json();
+        }
+
+        customer.name = name;
+        customer.email = email;
+        customer.document = document;
+
+        const customerUpdated = await prisma.customers.update({
+            where: {id},
+            data: customer
+        });
+        console.log(customer);
+        res.status(201);
+        return res.json(customer);
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({error: error})
     }
-
-    customer.name = name;
-    customer.email = email;
-    customer.document = document;
-
-    const customerUpdated = await prisma.customers.update({
-        where: {id},
-        data: customer
-    });
-    console.log(customer);
-    res.status(201);
-    return res.json(customer);
 });
 
 app.delete("/customers/:id", async (req, res) => {
-    const id = req.params.id;
-    const customer = await prisma.customers.findUnique({
-        where: {id}
-    });
+    try {
+        const id = req.params.id;
+        const customer = await prisma.customers.findUnique({
+            where: {id}
+        });
 
-    if (customer == null) {
-        return res.status(404).json();
+        if (customer == null) {
+            return res.status(404).json();
+        }
+
+        await prisma.customers.delete({
+            where: {id}
+        });
+        return res.status(204).json();
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({error: error});
     }
-
-    await prisma.customers.delete({
-        where: {id}
-    });
-    return res.status(204).json();
 });
 
 app.listen(3000, () => console.log("Server is running"));
