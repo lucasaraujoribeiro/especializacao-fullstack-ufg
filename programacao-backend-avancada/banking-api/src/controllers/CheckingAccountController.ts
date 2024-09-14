@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { prisma } from "../prisma";
 import { CheckingAccountService } from "../service/CheckingAccountService";
-import { debug } from "console";
 
 class CheckingAccountController {
 
@@ -82,6 +81,10 @@ class CheckingAccountController {
     verifyIfExists = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const id = req.params.id;
+            if (id.length !== 24) {
+                return res.status(404).json({error: "User not found."});
+            }
+
             const checkingAccount = await prisma.checkingAccount.findUnique({
                 where: {id}
             });
