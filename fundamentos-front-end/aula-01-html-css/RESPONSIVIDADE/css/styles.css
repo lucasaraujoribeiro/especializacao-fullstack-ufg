@@ -1,0 +1,35 @@
+/* 2 - media query */
+h1 {
+  color: red;
+}
+/* Max-width: 500px (<= 500) */
+@media screen and (max-width: 500px) {
+  h1 {
+    color: blue;
+  }
+}
+
+/* 3 - min-width */
+/* min-width: 800px (> 800) */
+p {
+  background-color: red;
+  color: #000;
+}
+
+@media screen and (min-width: 800px) {
+  p {
+    background-color: #789;
+    color: red;
+  }
+}
+
+/* 4 - landscape */
+h3 {
+  display: none;
+}
+/* Essa propriedade "block" faz com que o elemento seja exibido como um bloco. */
+@media screen and (orientation: landscape) {
+  h3 {
+    display: block;
+  }
+}
