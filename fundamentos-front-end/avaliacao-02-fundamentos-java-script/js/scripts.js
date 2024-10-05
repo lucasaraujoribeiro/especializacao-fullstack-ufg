@@ -26,27 +26,54 @@ function contarAteN() {
         contagem += i == n ? i : `${i},`;
     }
 
-    let res = document.querySelector('section#resultadoMediaAluno')
-    res.innerHTML = '<h3>Resultados<h3>';
-    res.innerHTML += `<div class="contagem"> <span>Contagem de 1 até ${n} é ${contagem} <span></div>`
+    monstrarMensagemResultados(`Contagem de 1 até ${n} é ${contagem}`)
 }
 
 function calcularIdade() {
     const anoNascimento = Number(window.prompt('Informe o ano de nascimento: '));
     const anoAtual = new Date().getFullYear();
 
-    let msgResultado = '';
     if (!anoNascimento || anoNascimento <= 0) {
-        msgResultado = `Ano de nascimento invalido ou não informado!`
+        monstrarMensagemResultados(`Ano de nascimento invalido ou não informado!`);
+    } else if (anoNascimento > anoAtual) {
+        monstrarMensagemResultados(`O ano de nascimento informado: ${anoNascimento}, é maior que o ano atual: ${anoAtual}`);
     } else if (anoNascimento <= anoAtual) {
-       msgResultado = `<p>Quem nasceu em ${anoNascimento} irá completar ${anoAtual - anoNascimento}  anos em ${anoAtual} </p>`;
-    } else {
-        msgResultado = `O ano de nascimento informado: ${anoNascimento}, é maior que o ano atual: ${anoAtual}`;
+        monstrarMensagemResultados(`Quem nasceu em ${anoNascimento} irá completar ${anoAtual - anoNascimento}  anos em ${anoAtual} `);
+    }
+}
+
+function calcularFatorial() {
+    const n = Number(window.prompt('Informe um numero: '));
+
+    if (n < 0) {
+        monstrarMensagemResultados(`O número não pode ser negativo!`);
+        return;
     }
 
+    if (n === 0) {
+        monstrarMensagemResultados('O fatorial de 0 é 1 </br> !0 = 1');
+        return;
+    }
+
+    let fatorial = n;
+    let msgFatorial = `!${n} = ${n} `;
+    for (let i = n; i > 1; i--) {
+        fatorial *= i - 1;
+        msgFatorial += ` x ${i - 1}`;
+        debugger;
+    }
+
+    monstrarMensagemResultados(`O fatorial de ${n} é ${fatorial} </br> ${msgFatorial} = ${fatorial}`);
+
+}
+
+function mostrarTabuada() {
+}
+
+function monstrarMensagemResultados(msg) {
     let res = document.querySelector('section#resultadoMediaAluno')
     res.innerHTML = '<h3>Resultados<h3>';
-    res.innerHTML += msgResultado;
+    res.innerHTML += `<p>${msg}</p>`;
 }
 
 function montarHtmlTabelaResultados(resultados) {
