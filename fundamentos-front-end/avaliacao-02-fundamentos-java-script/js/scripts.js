@@ -18,6 +18,19 @@ function calcularMediaAluno() {
     res.innerHTML = montarHtmlTabelaResultados(resultados);
 }
 
+function contarAteN() {
+    const n = Number(window.prompt('Informe o valor de N: '));
+
+    let contagem = '';
+    for (let i = 1; i <= n; i++) {
+        contagem += i == n ? i : `${i},`;
+    }
+
+    let res = document.querySelector('section#resultadoMediaAluno')
+    res.innerHTML = '<h3>Resultados<h3>';
+    res.innerHTML += `<div class="contagem"> <span>Contagem de 1 até ${n} é ${contagem} <span></div>`
+}
+
 function montarHtmlTabelaResultados(resultados) {
     let html = '<h3>Resultado</h3>';
     html += '<table class="tbResultados">';
