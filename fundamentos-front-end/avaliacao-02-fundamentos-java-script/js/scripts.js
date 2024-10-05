@@ -1,8 +1,16 @@
 function calcularMediaAluno() {
     const nome = window.prompt('Informe o nome do aluno:')
     const disciplina = window.prompt('Informe o nome da disciplina:')
-    const nota01 = Number(window.prompt('Informe a nota 1:'))
-    const nota02 = Number(window.prompt('Informe a nota 2:'))
+    const nota01 = Number(window.prompt('Informe a nota 1:'));
+    if (nota01 < 0) {
+        monstrarMensagemResultados('O valor da nota não pode ser menor que zero');
+        return;
+    } 
+    const nota02 = Number(window.prompt('Informe a nota 2:'));
+    if (nota02 < 0) {
+        monstrarMensagemResultados('O valor da nota não pode ser menor que zero');
+        return;
+    } 
 
     const media = (nota01 + nota02) / 2;
 
@@ -20,6 +28,11 @@ function calcularMediaAluno() {
 
 function contarAteN() {
     const n = Number(window.prompt('Informe o valor de N: '));
+
+    if (n <= 0) {
+        monstrarMensagemResultados('O número informado deve ser maior que zero');
+        return;
+    }
 
     let contagem = '';
     for (let i = 1; i <= n; i++) {
@@ -67,7 +80,23 @@ function calcularFatorial() {
 
 }
 
+function imparOuPar() {
+    const n = Number(window.prompt('Informe um número'));
+
+    let msg = `O número ${n} que foi digitado é `
+    msg += (n % 2) === 0 ? 'par' : 'impar';
+
+    monstrarMensagemResultados(msg);
+}
+
 function mostrarTabuada() {
+    const n = Number(window.prompt('Informe um número:'));
+
+    let tabuada = '';
+    for (let i = 1; i <= 10; i++) {
+        tabuada += `${n} x ${i} = ${n * i} </br>`;
+    }
+    monstrarMensagemResultados(`Tabuada de ${n}</br> ${tabuada}`);
 }
 
 function monstrarMensagemResultados(msg) {
