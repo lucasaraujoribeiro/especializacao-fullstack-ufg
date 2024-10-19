@@ -69,7 +69,7 @@ function calcularImc() {
         grauObesidade = 3;
     }
 
-    document.querySelector('#valor-imc'). value = resultado.toFixed(2);
+    document.querySelector('#valor-imc'). value = Math.trunc(resultado * 100) / 100;
     document.querySelector('#situacao-imc'). value = situacao;
     document.querySelector('#grau-obesidade-imc'). value = grauObesidade;
 

@@ -21,6 +21,8 @@ function calcular() {
         return;
     }
 
+    n1 = n1.replace('.','').replace(',','.');
+
     if (!isNumber(n1)) {
         exibirMensagem(`O Numero 1 inválido! ${n1}`, 'danger')
         return;
@@ -30,7 +32,8 @@ function calcular() {
         exibirMensagem(`O número 2 deve ser informado!`, 'danger')
         return;
     }
-    btnVerResultado.in
+   
+    n2 = n2.replace('.','').replace(',','.');
 
     if (!isNumber(n2)) {
         exibirMensagem(`O Numero 2 inválido! ${n2}`, 'danger')
