@@ -1,0 +1,22 @@
+.content {
+    margin: 15px
+}
+
+.row {
+    margin-top: 10px
+}
+
+.container-column {
+    margin: 15px;
+}
+
+.btn {
+    margin-top: 10px
+}
+
+table, td, th {
+    padding: 5px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}

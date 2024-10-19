@@ -1,0 +1,108 @@
+<html>
+
+<head>
+    <title>AVALIAÇÃO III – JAVA SCRIPT AVANÇADO</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/scripts.js" defer></script>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="content">
+        <h2>AVALIAÇÃO III – JAVA SCRIPT AVANÇADO</h2>
+        <div id="alertmsg"></div>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>2 - Calcular IMC</h3>
+                <form>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="altura">Altura(m)</label>
+                            <input id="altura" type="text" placeholder="0,00 m" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="peso">Peso(kg)</label>
+                            <input id="peso" type="text" placeholder="0,00 kg" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="valor-imc">Valor do IMC</label>
+                            <input id="valor-imc" type="text" placeholder="0" readonly="true" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="situacao-imc">Situação</label>
+                            <input id="situacao-imc" type="text" placeholder="0" readonly="true" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="grau-obesidade-imc">Grau de Obesidade</label>
+                            <input id="grau-obesidade-imc" type="text" placeholder="0" readonly="true"
+                                class="form-control" />
+                        </div>
+                    </div>
+                    <button id="btnCalcularImc" class="btn btn-primary">Calcular IMC</button>
+                    <button id="btnLimpar" class="btn btn-secudary">Limpar</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <h3 style="text-align: center;">Tabela Resultados</h3>
+                    <table class="table table-hover">
+                        <tr>
+                            <th>Resultado</th>
+                            <th>Situação</th>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td>Magreza grave</td>
+                        </tr>
+                        <tr>
+                            <td>entre 16 e 16,9</td>
+                            <td>Magreza moderada</td>
+                        </tr>
+                        <tr>
+                            <td>entre 17 e 18,5</td>
+                            <td>Magreza leve</td>
+                        </tr>
+                        <tr>
+                            <td>entre 18,6 e 24,9</td>
+                            <td>Peso ideal</td>
+                        </tr>
+                        <tr>
+                            <td>entre 25 e 29,9</td>
+                            <td>Sobrepeso</td>
+                        </tr>
+                        <tr>
+                            <td>entre 30 e 34,9</td>
+                            <td>Obesidade grau I</td>
+                        </tr>
+                        <tr>
+                            <td>entre 35 e 39,9</td>
+                            <td>Obesidade grau II ou severa</td>
+                        </tr>
+                        <tr>
+                            <td>maior do que 40</td>
+                            <td>Obesidade grau III ou mórbida</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
